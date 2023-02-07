@@ -13,7 +13,23 @@
 		D855DE9929191C090051E204 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D855DE9729191C090051E204 /* Main.storyboard */; };
 		D855DE9B29191C0B0051E204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D855DE9A29191C0B0051E204 /* Assets.xcassets */; };
 		D855DE9E29191C0B0051E204 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D855DE9C29191C0B0051E204 /* LaunchScreen.storyboard */; };
+		D8905546291E2BEB000F0158 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8905545291E2BEB000F0158 /* Alamofire.framework */; };
+		D8905547291E2BEB000F0158 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8905545291E2BEB000F0158 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D8905548291E2BEB000F0158 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D8905547291E2BEB000F0158 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D855DE8E29191C090051E204 /* InsultStatements.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsultStatements.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +40,9 @@
 		D855DE9A29191C0B0051E204 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D855DE9D29191C0B0051E204 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D855DE9F29191C0B0051E204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D890553E291A5F21000F0158 /* Alamofire */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = Alamofire; path = Carthage/Build/iOS/Alamofire.framework/Alamofire; sourceTree = "<group>"; };
+		D8905544291E2BE7000F0158 /* iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = iOS; path = Carthage/Build/iOS; sourceTree = "<group>"; };
+		D8905545291E2BEB000F0158 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8905546291E2BEB000F0158 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +62,7 @@
 			children = (
 				D855DE9029191C090051E204 /* InsultStatements */,
 				D855DE8F29191C090051E204 /* Products */,
+				D890553D291A5F21000F0158 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +88,16 @@
 			path = InsultStatements;
 			sourceTree = "<group>";
 		};
+		D890553D291A5F21000F0158 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8905545291E2BEB000F0158 /* Alamofire.framework */,
+				D8905544291E2BE7000F0158 /* iOS */,
+				D890553E291A5F21000F0158 /* Alamofire */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,6 +108,8 @@
 				D855DE8A29191C090051E204 /* Sources */,
 				D855DE8B29191C090051E204 /* Frameworks */,
 				D855DE8C29191C090051E204 /* Resources */,
+				D8905548291E2BEB000F0158 /* Embed Frameworks */,
+				D8905549291E3B31000F0158 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -132,6 +165,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D8905549291E3B31000F0158 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework\n\n",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D855DE8A29191C090051E204 /* Sources */ = {
@@ -288,6 +342,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9KN879RV4D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InsultStatements/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -298,6 +356,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS/Alamofire.framework",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "-.InsultStatements";
@@ -316,6 +378,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9KN879RV4D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InsultStatements/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -326,6 +392,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS/Alamofire.framework",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "-.InsultStatements";
